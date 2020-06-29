@@ -1,0 +1,133 @@
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+/**
+* Vendor Prefixes
+* @param  {text}    property name
+* @param  {text}    value of the property
+* @return   {text}   property value with vendor prefixes.
+*/
+@mixin vendor($property, $content) {
+    -webkit-#{$property}: $content;
+    -moz-#{$property}: $content;
+    -ms-#{$property}: $content;
+    -o-#{$property}: $content;
+    #{$property}: $content;
+}
+
+
+@mixin breakpoint($device) {
+    @if($device=='pc') {
+        @media screen and (max-width: $pc) {
+            @content;
+        }
+    }
+
+    @else if($device=='large-pc') {
+        @media screen and (max-width: $large-pc) {
+            @content;
+        }
+    }
+
+    @else if($device=='small-pc') {
+        @media screen and (max-width: $small-pc) {
+            @content;
+        }
+    }
+
+    @else if($device=='xs-pc') {
+        @media screen and (max-width: $xs-pc) {
+            @content;
+        }
+    }
+
+    @else if($device=='ipadland') {
+        @media screen and (max-width: $ipadland) {
+            @content;
+        }
+    }
+
+    @else if($device=='ipad') {
+        @media screen and (max-width: $ipad) {
+            @content;
+        }
+    }
+
+    @else if($device=='ipadport') {
+        @media screen and (max-width: $ipadport) {
+            @content;
+        }
+    }
+}
+
+@mixin reverse-breakpoint($device) {
+    @if($device=='pc') {
+        @media screen and (min-width: $pc) {
+            @content;
+        }
+    }
+
+    @else if($device=='large-pc') {
+        @media screen and (min-width: $large-pc) {
+            @content;
+        }
+    }
+
+    @else if($device=='small-pc') {
+        @media screen and (min-width: $small-pc) {
+            @content;
+        }
+    }
+
+    @else if($device=='xs-pc') {
+        @media screen and (min-width: $xs-pc) {
+            @content;
+        }
+    }
+
+    @else if($device=='ipadland') {
+        @media screen and (min-width: $ipadland) {
+            @content;
+        }
+    }
+
+    @else if($device=='ipad') {
+        @media screen and (min-width: $ipad) {
+            @content;
+        }
+    }
+
+    @else if($device=='ipadport') {
+        @media screen and (min-width: $ipadport) {
+            @content;
+        }
+    }
+}
+
+@function desktop-vw-mixin($pixels) {
+    // @if $pixels != 12 {
+    @return ($pixels) * 1px;
+    // }
+}
+
+
+@function desktop-vw-mixin-exp-map($pixels) {
+    // @if $pixels != 12 {
+    @return ($pixels / 1600) * 100vw;
+    // }
+}

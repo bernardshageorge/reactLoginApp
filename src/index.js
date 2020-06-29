@@ -1,12 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./containers/App";
+import "./index.scss";
 import * as serviceWorker from "./serviceWorker";
+import Route from "./routes";
+import UserProvider from "./providers/userProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <UserProvider>
+      <Route />
+    </UserProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
